@@ -21,6 +21,12 @@ return new class extends Migration
             $table->date('date');
             $table->integer('quantity');
             $table->string('info', 200);
+            $table->boolean('is_reminded')->nullable();;
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('category_id')->constrained(); 
+             //'user_id' は 'usersテーブル' の 'id' を参照する外部キーです
+            //'category_id' は 'categoriesテーブル' の 'id' を参照する外部キーです
+           
             
         });
     }

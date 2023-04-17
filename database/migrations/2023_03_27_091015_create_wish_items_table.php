@@ -18,6 +18,11 @@ return new class extends Migration
             $table->string('name', 50);
             $table->integer('price');    
             $table->string('info', 200);
+            $table->foreignId('category_id')->constrained();
+            $table->foreignId('user_id')->constrained();
+            //'category_id' は 'categoriesテーブル' の 'id' を参照する外部キーです
+            //'user_id' は 'userテーブル' の 'id' を参照する外部キーです
+            
         });
     }
 

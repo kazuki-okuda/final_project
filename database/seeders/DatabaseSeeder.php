@@ -6,7 +6,17 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
-{
+{   
+    //ここから追加
+    private const SEEDERS = [
+        UserSeeder::class,
+        CategorySeeder::class,
+        ItemSeeder::class,
+        Wish_ItemSeeder::class,
+        ExpenditureSeeder::class,
+        Have_ItemSeeder::class,
+    ];
+    //ここまで追加
     /**
      * Seed the application's database.
      *
@@ -20,5 +30,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        //ここから追加
+         foreach(self::SEEDERS as $seeder) {
+            $this->call($seeder);
+        }
+        //ここまで追加
     }
 }
